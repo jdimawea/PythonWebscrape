@@ -1,0 +1,26 @@
+Finding elements order
+ 1. ID
+ 2. Class name
+ 3. Tagg name, CSS selector
+ 4. Xpath
+
+Importing Libraries
+    from bs4 import BeautifulSoup
+    import requests
+
+Steps before scraping a website
+    1) Fetch the pages (obstained a response object)
+       result = requests.get("www.google.com")
+    2) Page content
+       content = result.text
+    3) Create soup
+       soup = BeautifulSoup(content, "lxml")
+
+Finding Elements with Beautiful Soup
+    soup.find(id="specific_id")
+    soup.find('tag', class_="class_name")
+    soup.find('article', class_="main_article")\
+        soup.find('h1')
+
+Finding Multiple Elements (.find_all returns a list)
+    soup.find_all("h2")
