@@ -13,6 +13,9 @@ content = result.text
 soup = BeautifulSoup(content, 'lxml')
 # print(soup.prettify())  # prints the HTML of the website
 
+pagination = soup.find('ul', class_="pagination")
+pages = pagination.find_all('li', class_='page-item')
+
 # Locate the box that contains a list of movies
 box = soup.find('article', class_='main-article')
 
