@@ -10,6 +10,13 @@ content = result.text
 # creating the soup
 soup = BeautifulSoup(content, 'lxml')
 # Displays a nice version of the html of the page
-print(soup.prettify())
+# print(soup.prettify())
 
-soup.find('article', class_="main-article")
+box = soup.find('article', class_="main-article")
+title = box.find('h1').get_text()
+transcript = box.find('div', class_="full-script").get_text(strip=True, separator=' ')
+# synopsis = box.find('p').get_text()
+
+print(title)
+print(transcript)
+# print(synopsis)
